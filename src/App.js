@@ -10,7 +10,25 @@ class App extends Component {
     
     this.state = {
       albums: albums,
-    }
+      searchVal: null
+    };
+  }
+  componentDidMount() {
+    fetch(
+			'https://itunes.apple.com/search?term=rush&entity=album'
+    )
+    .then(res => res.json())
+    .then(json => {
+      this.setState({ data: json })
+    });
+  }
+  filterAlbums = () => {
+    const filteredAlbums = this.state.albums.filter(
+      (album) => album.collectionName.indexOf(this.state.searchVal) > 0
+    );
+    this.setState({
+      albums: filteredAlbums,
+    });
   }
 	render() {
 		return (

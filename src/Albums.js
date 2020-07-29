@@ -6,7 +6,7 @@ class Albums extends Component {
         return (
             <div className="albums">
                 {this.props.albums.map(album => {
-                    return <Album album={album.artworkUrl60} key={album.collectionName} />
+                    return <Album album={album} key={album.collectionName} />
                 })}
             </div>
         );
