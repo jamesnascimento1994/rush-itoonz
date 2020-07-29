@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Search from './Search';
 
-class Header extends Component {
-    render() {
+function Header(props) {
         return (
-			<div>
+			<header>
 			    <h1>Rush iToonz</h1>
-			</div>
+                <Search />
+			</header>
 				);
     }
-}
 
 export default Header;
