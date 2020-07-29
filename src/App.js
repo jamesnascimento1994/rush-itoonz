@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
+import Header from './Header';
+import { albums } from './data'
 
 class App extends Component {
-  render() {
-  return (
-    <div className="App">
-      <h1>Rush iToonz</h1>
-    </div>
-  );
+  constructor(props) {
+    super(props)
+    
+    this.state = {
+      albums: albums,
+    }
   }
+	render() {
+		return (
+			<div className='App'>
+				<Header />
+			</div>
+		);
+	}
 }
 
 export default App;
