@@ -5,7 +5,7 @@ function Header(props) {
         return (
 			<header>
 			    <h1>Rush iToonz</h1>
-                <Search />
+                <Search filterAlbums={props.filterAlbums} />
 			</header>
 				);
     }

@@ -322,16 +322,6 @@ export const albums = [
 			wrapperType: "collection",
 			collectionType: "Album",
 			artistName: "Rush",
-			collectionName: "Clockwork Angels",
-			artworkUrl60: "https://is4-ssl.mzstatic.com/image/thumb/Music/v4/f1/ef/f1/f1eff1f5-ad3d-3f93-8baf-49182cff1ec9/source/60x60bb.jpg",
-			artworkUrl100: "https://is4-ssl.mzstatic.com/image/thumb/Music/v4/f1/ef/f1/f1eff1f5-ad3d-3f93-8baf-49182cff1ec9/source/100x100bb.jpg",
-			releaseDate: "2012-05-29T07:00:00Z",
-			primaryGenreName: "Rock"
-		},
-		{
-			wrapperType: "collection",
-			collectionType: "Album",
-			artistName: "Rush",
 			collectionName: "Different Stages • Live",
 			artworkUrl60: "https://is5-ssl.mzstatic.com/image/thumb/Music/v4/ed/20/01/ed200157-d89e-8fc2-8e86-246967a3d82d/source/60x60bb.jpg",
 			artworkUrl100: "https://is5-ssl.mzstatic.com/image/thumb/Music/v4/ed/20/01/ed200157-d89e-8fc2-8e86-246967a3d82d/source/100x100bb.jpg",

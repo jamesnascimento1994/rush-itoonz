@@ -5,8 +5,8 @@ class Albums extends Component {
     render() {
         return (
             <div className="albums">
-                {this.props.albums.map(album => {
-                    return <Album album={album} key={album.collectionName} />
+                {this.props.albums.map((album, index) => {
+                    return <Album album={album} key={`${index}-${album.collectionName}`} />
                 })}
             </div>
         );
