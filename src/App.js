@@ -43,17 +43,21 @@ class App extends Component {
 			<div className='App'>
 				<Header filterAlbums={this.filterAlbums} />
 				<Route
-					path='/:page'
+					exact path='/'
 					render={(routerProps) => {
             console.log(routerProps.match.params.page);
             let albums;
 						if (
-							routerProps.match.params.page === 'home' ||
-							!this.state.filterAlbums
+							this.state.filterAlbums &&
+							routerProps.location.search.indexOf('home') < 0
+						) {
+							albums = this.state.filterAlbums;
+						}
+						if (
+							!this.state.filterAlbums ||
+							routerProps.location.search.indexOf('home') > 0
 						) {
 							albums = this.state.albums;
-						} else {
-							albums = this.state.filterAlbums;
 						}
 						return (
 							<Albums
