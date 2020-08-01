@@ -5,8 +5,11 @@ class Search extends Component {
 		super(props);
 		this.state = {
 			searchValue: '',
+			hideToolTip: false,
 		};
+		this.handleChange = this.handleChange.bind(this);
 	}
+
 	handleChange = (event) => {
 		this.setState({ searchValue: event.target.value });
 		this.handleSubmit(event);

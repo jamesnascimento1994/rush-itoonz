@@ -3,6 +3,8 @@ import './App.css';
 import Header from './Header';
 import { albums } from './data';
 import Albums from './Albums';
+import { Route } from 'react-router-dom';
+import AlbumDisplay from './AlbumDisplay';
 
 class App extends Component {
 	constructor(props) {
@@ -27,7 +29,9 @@ class App extends Component {
 		const filteredAlbums = this.state.albums
 			.filter((album) => album.collectionName)
 			.filter((album) => {
-				return album.collectionName.toLowerCase().includes(searchVal.toLowerCase());
+				return album.collectionName
+					.toLowerCase()
+					.includes(searchVal.toLowerCase());
 			});
 		this.setState({
 			filterAlbums: filteredAlbums,
@@ -38,13 +42,44 @@ class App extends Component {
 		return (
 			<div className='App'>
 				<Header filterAlbums={this.filterAlbums} />
-				<Albums
-					albums={
-						this.state.filterAlbums
-							? this.state.filterAlbums
-							: this.state.albums
-					}
-					collectionName={this.state.collectionName}
+				<Route
+					path='/:page'
+					render={(routerProps) => {
+            console.log(routerProps.match.params.page);
+            let albums;
+						if (
+							routerProps.match.params.page === 'home' ||
+							!this.state.filterAlbums
+						) {
+							albums = this.state.albums;
+						} else {
+							albums = this.state.filterAlbums;
+						}
+						return (
+							<Albums
+								routerProps={routerProps}
+								// albums={
+								// 	this.state.filterAlbums && routerProps.match.params.page !== "home" 
+								// 		? this.state.filterAlbums
+								// 		: this.state.albums
+                // }
+                albums = {albums}
+								collectionName={this.state.collectionName}
+							/>
+						);
+					}}
+				/>
+				<Route
+					exact
+					path='/album/:name'
+					render={(routerProps) => {
+						return (
+							<AlbumDisplay
+								match={routerProps.match}
+								albums={this.state.albums}
+							/>
+						);
+					}}
 				/>
 			</div>
 		);
