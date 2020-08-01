@@ -4,19 +4,18 @@ class Search extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			searchValue: '',
 			hideToolTip: false,
 		};
 		this.handleChange = this.handleChange.bind(this);
 	}
 
 	handleChange = (event) => {
-		this.setState({ searchValue: event.target.value });
-		this.handleSubmit(event);
+		this.props.setSearchVal(event.target.value);
 	};
+
 	handleSubmit = (event) => {
 		event.preventDefault();
-		this.props.filterAlbums(this.state.searchValue);
+		this.props.setSearchVal(this.props.searchVal);
 	};
 	render() {
 		return (
@@ -26,9 +25,8 @@ class Search extends Component {
 					id='search'
 					type='text'
 					onChange={this.handleChange}
-					value={this.state.searchValue}
+					value={this.props.searchVal}
 				/>
-				<button type='submit'>Search</button>
 			</form>
 		);
 	}

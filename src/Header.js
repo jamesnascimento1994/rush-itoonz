@@ -3,14 +3,22 @@ import Search from './Search';
 import { Link } from 'react-router-dom';
 
 function Header(props) {
-        return (
-					<header>
-						<Link to='/?page=home'>
-							<h1>Rush iToonz</h1>
-						</Link>
-						<Search filterAlbums={props.filterAlbums} />
-					</header>
-				);
-    }
+	function handleHeaderClick() {
+		props.resetSearchVal();
+	}
+
+	return (
+		<header>
+			<Link to='/' onClick={handleHeaderClick}>
+				<h1>Rush iToonz</h1>
+			</Link>
+			<Search
+				setSearchVal={props.setSearchVal}
+				searchVal={props.searchVal}
+				filterAlbums={props.filterAlbums}
+			/>
+		</header>
+	);
+}
 
 export default Header;
