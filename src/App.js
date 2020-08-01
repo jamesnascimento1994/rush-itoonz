@@ -12,7 +12,7 @@ class App extends Component {
 
 		this.state = {
 			albums: albums,
-			// searchVal: null,
+			searchVal: null,
 			filterAlbums: null,
 		};
 	}
@@ -23,51 +23,41 @@ class App extends Component {
 				this.setState({ data: json });
 			});
 	}
+
+	setSearchVal = (searchVal) => {
+		this.setState({ searchVal });
+		this.filterAlbums(searchVal);
+	}
+
+	resetSearchVal = () => {
+		this.setState({ searchVal: ''});
+		this.filterAlbums('');
+	}
 	filterAlbums = (searchVal) => {
-		console.log(searchVal);
-		console.log(this.state.albums);
 		const filteredAlbums = this.state.albums
 			.filter((album) => album.collectionName)
 			.filter((album) => {
-				return album.collectionName
-					.toLowerCase()
-					.includes(searchVal.toLowerCase());
+				if(typeof album.collectionName !== 'undefined') {
+					return album.collectionName
+						.toLowerCase()
+						.includes(searchVal.toLowerCase());
+				}
 			});
 		this.setState({
 			filterAlbums: filteredAlbums,
 		});
-		console.log(this.state.filterAlbums);
 	};
 	render() {
 		return (
 			<div className='App'>
-				<Header filterAlbums={this.filterAlbums} />
+				<Header resetSearchVal={this.resetSearchVal} searchVal={this.state.searchVal} setSearchVal={this.setSearchVal} filterAlbums={this.filterAlbums} />
 				<Route
-					exact path='/'
-					render={(routerProps) => {
-            console.log(routerProps.match.params.page);
-            let albums;
-						if (
-							this.state.filterAlbums &&
-							routerProps.location.search.indexOf('home') < 0
-						) {
-							albums = this.state.filterAlbums;
-						}
-						if (
-							!this.state.filterAlbums ||
-							routerProps.location.search.indexOf('home') > 0
-						) {
-							albums = this.state.albums;
-						}
+					exact
+					path='/'
+					render={() => {
 						return (
 							<Albums
-								routerProps={routerProps}
-								// albums={
-								// 	this.state.filterAlbums && routerProps.match.params.page !== "home" 
-								// 		? this.state.filterAlbums
-								// 		: this.state.albums
-                // }
-                albums = {albums}
+								albums={this.state.filterAlbums ? this.state.filterAlbums : this.state.albums}
 								collectionName={this.state.collectionName}
 							/>
 						);
