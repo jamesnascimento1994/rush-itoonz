@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand');
+
+.home {
+    text-decoration: none;
+    font-family: 'Gochi Hand', sans-serif;
+}
+
+.home:visited {
+    color: black;
+}

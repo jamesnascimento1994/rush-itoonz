@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './Album.css';
 
 class Album extends Component {
     render() {
@@ -8,7 +9,6 @@ class Album extends Component {
 						<Link to={"/album/"+this.props.album.collectionName}>
 							{' '}
 							<img src={this.props.album.artworkUrl100} alt='artwork' />
-							<h2>{this.props.album.collectionName}</h2>{' '}
 						</Link>
 					</div>
 				);

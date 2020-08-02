@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './AlbumDisplay.css';
 
 class AlbumDisplay extends Component {
 	handleChange = (event) => {

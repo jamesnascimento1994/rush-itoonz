@@ -1,6 +1,7 @@
 import React from 'react';
 import Search from './Search';
 import { Link } from 'react-router-dom';
+import './Header.css';
 
 function Header(props) {
 	function handleHeaderClick() {
@@ -9,7 +10,7 @@ function Header(props) {
 
 	return (
 		<header>
-			<Link to='/' onClick={handleHeaderClick}>
+			<Link to='/' onClick={handleHeaderClick} className="home">
 				<h1>Rush iToonz</h1>
 			</Link>
 			<Search
