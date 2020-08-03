@@ -41,10 +41,9 @@ class App extends Component {
 					return album.collectionName
 						.toLowerCase()
 						.includes(searchVal.toLowerCase());
-        }
-        return false;
-      }
-			);
+				}
+				return false;
+			});
 		this.setState({
 			filterAlbums: filteredAlbums,
 		});
@@ -52,18 +51,17 @@ class App extends Component {
 	render() {
 		return (
 			<div className='App'>
-				<Header
-					resetSearchVal={this.resetSearchVal}
-					searchVal={this.state.searchVal}
-					setSearchVal={this.setSearchVal}
-					filterAlbums={this.filterAlbums}
-				/>
+				<Header resetSearchVal={this.resetSearchVal} />
 				<Route
 					exact
 					path='/'
 					render={() => {
 						return (
 							<Albums
+								resetSearchVal={this.resetSearchVal}
+								searchVal={this.state.searchVal}
+								setSearchVal={this.setSearchVal}
+								filterAlbums={this.filterAlbums}
 								albums={
 									this.state.filterAlbums
 										? this.state.filterAlbums

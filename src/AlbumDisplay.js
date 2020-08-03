@@ -18,10 +18,16 @@ class AlbumDisplay extends Component {
 				<h3>{albumToDisplay.releaseDate}</h3>
 				<h4>Personnel:</h4>
 				<ul>
-					<li>{albumToDisplay.personnel[0]}</li>
-					<li>{albumToDisplay.personnel[1]}</li>
-					<li>{albumToDisplay.personnel[2]}</li>
+					{albumToDisplay.personnel.map(person => {
+                        return <li key={person}>{person}</li>
+                    })}
 				</ul>
+                <h4>Track Listing:</h4>
+                <ul>
+                {albumToDisplay.trackListing.map(track => {
+                    return <li key={track}>{track}</li>
+                })}
+                </ul>
 			</div>
 		);
 	}
