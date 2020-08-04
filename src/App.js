@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './Header';
-import { albums } from './data';
 import Albums from './Albums';
 import { Route } from 'react-router-dom';
 import AlbumDisplay from './AlbumDisplay';
@@ -11,16 +10,18 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			albums: albums,
+			albums: null,
 			searchVal: '',
 			filterAlbums: null,
 		};
 	}
 	componentDidMount() {
-		fetch('https://itunes.apple.com/search?term=rush&entity=album')
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+		fetch(proxyUrl + 'https://itunes.apple.com/search?term=rush&entity=album')
 			.then((res) => res.json())
 			.then((json) => {
-				this.setState({ data: json });
+        console.log(json);
+				this.setState({ albums: json.results });
 			});
 	}
 
