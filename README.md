@@ -52,7 +52,7 @@ Framework: React.js
 
 Deployed with Heroku
 
-Deployed app here: https://rushitoonzapp.herokuapp.com/
+https://rushitoonzapp.herokuapp.com/
 
 Everything else below is the available scripts that you can use after installing create-react-app along with other documentation that you might find useful.
 
@@ -124,4 +124,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
