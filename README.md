@@ -47,6 +47,7 @@ Search function (Located in App.js)
 ##### Technologies Used
 
 Programming Languages: HTML, CSS, and JavaScript
+
 Framework: React.js
 
 Deployed with Heroku
