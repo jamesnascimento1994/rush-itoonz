@@ -50,9 +50,9 @@ Programming Languages: HTML, CSS, and JavaScript
 
 Framework: React.js
 
-Deployed with Heroku
+Deployed with Netlify
 
-https://rushitoonzapp.herokuapp.com/
+https://rush-itoonz.netlify.app/
 
 Everything else below is the available scripts that you can use after installing create-react-app along with other documentation that you might find useful.
 
