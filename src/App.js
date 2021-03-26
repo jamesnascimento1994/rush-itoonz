@@ -4,20 +4,20 @@ import Header from './Header';
 import Albums from './Albums';
 import { Route } from 'react-router-dom';
 import AlbumDisplay from './AlbumDisplay';
+import {albums} from './data';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			albums: null,
+			albums: albums,
 			searchVal: '',
 			filterAlbums: null,
 		};
 	}
 	componentDidMount() {
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-		fetch(proxyUrl + 'https://itunes.apple.com/search?term=rush&entity=album')
+		fetch(albums)
 			.then((res) => res.json())
 			.then((json) => {
         console.log(json);

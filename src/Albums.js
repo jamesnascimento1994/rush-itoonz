@@ -7,7 +7,7 @@ class Albums extends Component {
 		this.props.resetSearchVal();
 	}
     render() {
-        console.log(this.props.routerProps)
+		console.log(this.props.albums)
         return (
 					<div>
 						<Search
