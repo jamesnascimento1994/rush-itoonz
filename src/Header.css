@@ -8,3 +8,8 @@
 .home:visited {
     color: black;
 }
+
+h1:hover {
+    font-size: 40px;
+    transition: ease-out 1s;
+}

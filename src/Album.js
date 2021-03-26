@@ -6,7 +6,7 @@ class Album extends Component {
     render() {
         return (
 					<div className='album'>
-						<Link to={"/album/"+this.props.album.collectionName}>
+						<Link className="album-link" to={"/album/"+this.props.album.collectionName}>
 							{' '}
 							<img src={this.props.album.artworkUrl100} alt='artwork' />
 						</Link>
